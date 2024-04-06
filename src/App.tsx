@@ -1,6 +1,9 @@
-import Die from './components/Die'
+import Die from './components/Die';
+import { deck } from 'dice-cards';
 
 function App() {
+  const diceCards = deck();
+  const card = diceCards.pop();
 
   return (
     <>
@@ -12,8 +15,8 @@ function App() {
         alignItems: 'center',
       }
     }>
-      <Die pip={1} />
-      <Die pip={2} />
+      <Die pip={card.die1} />
+      <Die pip={card.die2} />
     </div>
     </>
   )
