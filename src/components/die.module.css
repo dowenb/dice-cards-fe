@@ -1,0 +1,13 @@
+.box {
+
+    padding: 20px;
+    height: 2em;
+    width: 2em;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
