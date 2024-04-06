@@ -8,7 +8,7 @@ function App() {
   const [card, setCard] = useState(diceCards.pop());
 
   function rollDice() {
-    if(diceCards.length > 0){
+    if (diceCards.length > 0) {
       setCard(diceCards.pop())
     } else {
       // If the deck of dice cards as run out, start a new one.
@@ -33,6 +33,9 @@ function App() {
         }}>
           <Die pip={card.die1} />
           <Die pip={card.die2} />
+        </div>
+        <div>
+          <h1>You rolled: {card.sum}</h1>
         </div>
         <div>
           <Button onPress={() => rollDice()}>
