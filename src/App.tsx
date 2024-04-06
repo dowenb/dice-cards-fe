@@ -1,10 +1,21 @@
+import { useState } from 'react';
 import Die from './components/Die';
 import { Button } from 'react-aria-components'
 import { deck } from 'dice-cards';
 
 function App() {
-  const diceCards = deck();
-  const card = diceCards.pop();
+  let diceCards = deck();
+  const [card, setCard] = useState(diceCards.pop());
+
+  function rollDice() {
+    if(diceCards.length > 0){
+      setCard(diceCards.pop())
+    } else {
+      // If the deck of dice cards as run out, start a new one.
+      diceCards = deck();
+      setCard(diceCards.pop())
+    }
+  }
 
   return (
     <>
@@ -24,7 +35,7 @@ function App() {
           <Die pip={card.die2} />
         </div>
         <div>
-          <Button onPress={() => alert('roll the Dice!')}>
+          <Button onPress={() => rollDice()}>
             Roll Dice
           </Button>
         </div>
